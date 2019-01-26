@@ -1,0 +1,14 @@
+{
+    "name": "conuhacks_web",
+    "version": "0.0.1",
+    "scripts": {
+      "start": ""
+    },
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^4.16.4",
+      "sequelize": "^4.42.0"
+    }
+  }
+  

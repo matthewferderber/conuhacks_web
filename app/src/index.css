@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
 body {
   margin: 0;
   padding: 0;
@@ -11,4 +13,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.toolbar{ 
+  color: #E57E7E;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 20;
+}
+
+h2 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 15;
 }

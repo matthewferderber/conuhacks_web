@@ -1,4 +1,4 @@
-import app from 'firebase/app';
+import * as firebase from 'firebase';
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -11,9 +11,9 @@ const config = {
 
 class Firebase {
     constructor() {
-        app.initializeApp(config);
-        this.auth = app.auth();
-        this.provider = new app.auth.GoogleAuthProvider();
+        firebase.initializeApp(config);
+        this.auth = firebase.auth();
+        this.provider = new firebase.auth.GoogleAuthProvider();
         this.provider.addScope('https://www.googleapis.com/auth/userinfo.email');
     }
 

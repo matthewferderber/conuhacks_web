@@ -5,34 +5,26 @@ import './App.css';
 import Firebase from './components/Firebase';
 
 class App extends Component {
-  componentDidMount() {
-    this.app = new Firebase();
-  }
+    constructor(props) {
+        super(props);
+        this.app = new Firebase();
+        this.toolbarItems = {type: 'button,' , text: 'GroupEm', id: 0}
+    }
 
-  async login() {
-    this.app.signIn();
-  }
+    signIn = async () => {
+      await this.app.signIn();
+      console.log(this.app);
+    }
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="toolbar" onClick={this.signIn}>
+              <div className="login">
+                <h2>Login</h2>
+              </div>
+            </div>
+        )
+    }
 }
 
 export default App;
