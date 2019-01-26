@@ -8,17 +8,17 @@ import Swiper from './components/Swiper/Swiper';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.app = new Firebase();
+        this.firebase = new Firebase();
         this.toolbarItems = {type: 'button,' , text: 'GroupEm', id: 0}
     }
 
     signIn = async () => {
-      await this.app.signIn();
-      this.setState({'user': this.app.user});
+      await this.firebase.signIn();
+      this.setState({'user': this.firebase.user});
     }
 
     signedIn() {
-        return this.app.user;
+        return this.firebase.user;
     }
 
     render() {
@@ -29,7 +29,7 @@ class App extends Component {
                         <h2>Login</h2>
                     </div>
                 </div>
-                {this.signedIn() ? <Swiper user={this.app.user}/> : "Please sign in"}
+                {this.signedIn() ? <Swiper user={this.firebase.user}/> : "Please sign in"}
             </div>
         )
     }
