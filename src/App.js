@@ -4,6 +4,9 @@ import './App.css';
 
 import Firebase from './components/Firebase';
 import Swiper from './components/Swiper/Swiper';
+import WorkspaceCreator from './components/WorkspaceCreator/WorkspaceCreator';
+import WorkspaceList from './components/WorkspaceList/WorkspaceList';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
     constructor(props) {
@@ -22,15 +25,30 @@ class App extends Component {
     }
 
     render() {
+                // {this.signedIn() ? <Swiper user={this.firebase.user}/> : "Please sign in"}
+        let links;
+        if (this.signedIn()) {
+            links = [
+                (<li><a href="/workspaces"><h2>Workspaces</h2></a></li>),
+                (<li><a href="/createworkspace"><h2>Workspace Creator</h2></a></li>)
+            ];
+        } else {
+            links = [
+                <li className="login" onClick={this.signIn}><h2>Login</h2></li>
+            ]
+        }
         return (
-            <div className="app">
-                <div className="toolbar" onClick={this.signIn}>
-                    <div className="login">
-                        <h2>Login</h2>
-                    </div>
+            <Router>
+                <div className="app">
+                    <ul className="toolbar">
+                    {links}
+                    </ul>
+                    <Route path="/workspaces" component={WorkspaceList}/>
+                    <Route path="/createworkspace" component={WorkspaceCreator}/>
+                    <Route path="/matching" component={Swiper}/>
+                    <Route path="/createprofile" component={WorkspaceCreator}/>
                 </div>
-                {this.signedIn() ? <Swiper user={this.firebase.user}/> : "Please sign in"}
-            </div>
+            </Router>
         )
     }
 }
