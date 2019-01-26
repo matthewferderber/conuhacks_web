@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Firebase from './components/Firebase';
+
 class App extends Component {
+  componentDidMount() {
+    this.app = new Firebase();
+  }
+
+  async login() {
+    this.app.signIn();
+  }
+
   render() {
     return (
       <div className="App">
