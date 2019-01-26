@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Firebase from './components/Firebase';
+import Swiper from './components/Swiper/Swiper';
 
 class App extends Component {
     constructor(props) {
@@ -13,15 +14,22 @@ class App extends Component {
 
     signIn = async () => {
       await this.app.signIn();
-      console.log(this.app);
+      this.setState({'user': this.app.user});
+    }
+
+    signedIn() {
+        return this.app.user;
     }
 
     render() {
         return (
-            <div className="toolbar" onClick={this.signIn}>
-              <div className="login">
-                <h2>Login</h2>
-              </div>
+            <div className="app">
+                <div className="toolbar" onClick={this.signIn}>
+                    <div className="login">
+                        <h2>Login</h2>
+                    </div>
+                </div>
+                {this.signedIn() ? <Swiper user={this.app.user}/> : "Please sign in"}
             </div>
         )
     }
