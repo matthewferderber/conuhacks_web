@@ -6,3 +6,5 @@ const port = 3000;
 app.get('/api', (req, res) => {
     res.send({ 'data': [] });
 });
+
+app.listen(port, () => console.log(`Listening on port ${port}!`))
