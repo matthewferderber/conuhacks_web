@@ -26,6 +26,14 @@ class Firebase {
             console.error(err);
         }
     }
+
+    async logout() {
+        try {
+            await this.auth.signOut();
+        } catch (err) {
+            console.error(err);
+        }
+    }
 }
 
 
