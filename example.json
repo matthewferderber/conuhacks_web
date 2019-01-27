@@ -1,0 +1,39 @@
+{
+    "users": {
+        "SOME_STRING_USER_ID": {
+            "name": "Matthew",
+            "email": "matthew@test.com",
+            "workspaces": {
+                "WORKSPACE_ID": true,
+                "OTHER_WORKSPACE_ID": true
+            }
+        }
+    },
+    "workspace-members": {
+        "workspace_id": {
+            "USER_ID": {
+                "programming_languages": ["Java"]
+            },
+            "OTHER_USER_ID": true,
+            "REJECTED_USER_ID": true
+        }
+    },
+    "workspaces": {
+        "WORKSPACE_ID": {
+            "metadata": {
+
+            },
+            "members": {
+                "USER_ID": {
+                    "accepts": {"USER_ID": true}, 
+                    "rejects": {"REJECTED_USER_ID": true}, 
+                    "matches": {"OTHER_USER_ID": true}
+                }, 
+                "OTHER_USER_ID": {
+                    "accepts": {"OTHER_USER_ID": true},
+                    "rejects": {"REJECTED_USER_ID": true},
+                    "matches": {"OTHER_USER_ID": true}}
+            }
+        }
+    }
+}

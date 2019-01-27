@@ -36,7 +36,7 @@ class App extends Component {
         let links;
         if (this.state.user) {
             links = [
-                (<li key="1"><Link to="/matching"><h2>Matches</h2></Link></li>),
+                (<li key="1"><Link to="/match"><h2>Matches</h2></Link></li>),
                 (<li key="2"><Link to="/workspaces"><h2>Workspaces</h2></Link></li>),
                 (<li key="3"><Link to="/createworkspace"><h2>Workspace Creator</h2></Link></li>),
                 (<li key="4" onClick={this.logOut}><h2>Logout</h2></li>)
@@ -54,7 +54,7 @@ class App extends Component {
                     </ul>
                     <Route path="/workspaces" component={WorkspaceList}/>
                     <Route path="/createworkspace" component={WorkspaceCreator}/>
-                    <Route path="/matching" render={(props) => <Swiper {...props} user={this.state.user}/>} />
+                    <Route path="/match/:id" render={(props) => <Swiper {...props} user={this.state.user}/>} />
                     <Route path="/createprofile" component={WorkspaceCreator}/>
                     <Route path="/newprofile" component={Profile}/>
                 </div>
