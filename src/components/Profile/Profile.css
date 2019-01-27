@@ -1,0 +1,33 @@
+.card {
+    text-align: center;
+    border-color: #E57E7E;
+    border-width: 13px;
+    border-style: solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    width: 35%;
+    padding: 10px;
+}
+
+.profile-img {
+    text-align: center;
+    margin: auto;
+    background-color: #E57E7E;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.profile-info {
+    text-align: left;
+    font-family: 'Roboto Slab', serif;
+    color: #707070;
+    font-weight: normal;
+    font-size: 20px;
+    margin: 10px;
+}
+
+h1 {
+    color: #707070;
+    font-weight: normal;
+}
