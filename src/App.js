@@ -14,6 +14,7 @@ class App extends Component {
         super(props);
         this.state = {};
         this.firebase = new Firebase();
+        this.firebase.createTestData();
         this.toolbarItems = {type: 'button,' , text: 'GroupEm', id: 0}
     }
 

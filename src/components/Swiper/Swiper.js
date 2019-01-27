@@ -18,7 +18,7 @@ class Swiper extends Component {
 }
 
 export default connect((props, ref) => ({
-    users: async () => await ref('/user/').once('value'),
-    accept: () => ref('user/' + props.user.uid + '/accepts').push('uidhere'),
-    reject: () => ref('user/' + props.user.uid + '/rejects').push('putuidhere'),
+    users: async () => await ref('/workspace-members/' + props.workspace).once('value'),
+    accept: () => ref('users/workspaces' + props.user.uid + '/accepts').push('uidhere'),
+    reject: () => ref('users/' + props.user.uid + '/rejects').push('putuidhere'),
 }))(Swiper);
