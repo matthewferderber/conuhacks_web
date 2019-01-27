@@ -22,6 +22,18 @@ class Firebase {
             const result = await this.auth.signInWithPopup(this.provider);
             this.token = result.credential.accessToken;
             this.user = result.user;
+            const u = await firebase.database().ref('user/' + this.user.uid).once('value');
+
+            // create user if this is the first sign in
+            if (!u.exists()) {
+                firebase.database().ref('user/' + this.user.uid).set({
+                    email: this.user.email, 
+                    name: this.user.displayName, 
+                    matches: [], 
+                    accepts: [], 
+                    rejects: []
+                });
+            }
         } catch (err) {
             console.error(err);
         }

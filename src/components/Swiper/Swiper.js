@@ -2,20 +2,23 @@ import React, {Component} from 'react'
 import styles from './Swiper.css';
 import { connect } from 'react-firebase';
 
-const Swiper = ({accept, reject}) => {
+class Swiper extends Component {
+    render() {
         return (
             <div className="swiper">
-                <div onClick={accept}>
+                <div onClick={this.props.accept}>
                     Accept
                 </div>
-                <div onClick={reject}>
+                <div onClick={this.props.reject}>
                     Reject
                 </div>
             </div>
         )
         };
+}
 
 export default connect((props, ref) => ({
-    accept: () => ref('swipes/' + props.user.uid).set(1),
-    reject: () => ref('swipes/' + props.user.uid).set(-1),
+    users: async () => await ref('/user/').once('value'),
+    accept: () => ref('user/' + props.user.uid + '/accepts').push('uidhere'),
+    reject: () => ref('user/' + props.user.uid + '/rejects').push('putuidhere'),
 }))(Swiper);
